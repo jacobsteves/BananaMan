@@ -75,7 +75,7 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(bananamanSprite())
         self.addChild(scoreLabel())
         self.physicsWorld.contactDelegate = self
-        self.backgroundColor = SKColor(red: 84/255.0, green: 124/255.0, blue: 75/255.0, alpha: 1)
+        self.backgroundColor = SKColor(red: 200/255.0, green: 149/255.0, blue: 91/255.0, alpha: 1)
 
         self.physicsBody = bottomCollider
         bottomCollider.categoryBitMask = PhysicsCategory.Edge | PhysicsCategory.Collider
@@ -127,11 +127,11 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
     func scoreFormat(score: Int) -> String {
         return String(format: "%07d", score)
     }
-    
+
     func generateScore() -> String {
         return scoreFormat(score: currentScore)
     }
-    
+
     func newHighscore() -> Bool {
         return currentScore > defaults.integer(forKey: "highscore")
     }
@@ -159,7 +159,7 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
         defaults.set(currentScore, forKey: "highscore")
         scoreNode.text = "New Highscore: " + scoreNode.text!
     }
-    
+
     func endGame() {
 
         titleNode.isHidden = false
@@ -173,7 +173,7 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
         if (newHighscore()) {
             updateHighscore()
         }
-        
+
         for node in self.children {
             if (node.physicsBody?.categoryBitMask == PhysicsCategory.Obstacle) {
                 node.physicsBody?.velocity = CGVector(dx:0, dy:0)
