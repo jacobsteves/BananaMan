@@ -26,7 +26,7 @@ class ViewController: NSViewController {
         setupMainTapReceiverButton()
     }
 
-    func tap() {
+    @objc func tap() {
         bananamanSKView.bananamanScene.jump()
     }
 
@@ -113,9 +113,9 @@ extension ViewController: NSTouchBarDelegate {
         return touchBar
     }
 
-    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItemIdentifier) -> NSTouchBarItem? {
+    func touchBar(_ touchBar: NSTouchBar, makeItemForIdentifier identifier: NSTouchBarItem.Identifier) -> NSTouchBarItem? {
         switch identifier {
-        case NSTouchBarItemIdentifier.bananamanItem:
+        case NSTouchBarItem.Identifier.bananamanItem:
             let customViewItem = NSCustomTouchBarItem(identifier: identifier)
             customViewItem.view = bananamanView
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
@@ -129,10 +129,13 @@ extension ViewController: NSTouchBarDelegate {
     }
 }
 
-extension NSTouchBarCustomizationIdentifier {
-    static let bananamanBar = NSTouchBarCustomizationIdentifier("com.jacobsteves.BananaMan.BananaManBar")
+@available(OSX 10.12.2, *)
+extension NSTouchBar.CustomizationIdentifier {
+    @available(OSX 10.12.2, *)
+    static let bananamanBar = NSTouchBar.CustomizationIdentifier("com.jacobsteves.BananaMan.BananaManBar")
 }
 
-extension NSTouchBarItemIdentifier {
-    static let bananamanItem = NSTouchBarItemIdentifier("com.jacobsteves.BananaMan.BananaManBar.main")
+@available(OSX 10.12.2, *)
+extension NSTouchBarItem.Identifier {
+    static let bananamanItem = NSTouchBarItem.Identifier("com.jacobsteves.BananaMan.BananaManBar.main")
 }
