@@ -1,6 +1,8 @@
 # BananaMan
 A mac touchbar application similar to google chrome's Dino runner. Includes tracking highscores through the machine's local storage. Can be built into a complete app.
 
+Scores are tracked as a time counter. The longer you survive, the higher your score will be. If your score breaks the highscore, you update the highscore which is visible when the app starts up again.
+
 ![Demo Gif](Demo/bananaMan.gif)
 
 ## Getting Started
@@ -20,12 +22,6 @@ git clone https://github.com/jacobsteves/BananaMan.git
 ```
 
 Open the project in Xcode, then just clean and build and you'll be good to go!
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
