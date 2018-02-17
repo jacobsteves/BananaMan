@@ -18,6 +18,8 @@ struct PhysicsCategory {
     static let Obstacle: UInt32 = 0b1000
 }
 
+let defaults = UserDefaults.standard
+
 class BananaManScene: SKScene, SKPhysicsContactDelegate {
 
     var sceneCreated = false
@@ -25,7 +27,7 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
     var canJump = false
     var shouldSpawnObstacle = false
     var shouldUpdateScore = false
-    
+
     let titleNode = SKLabelNode(fontNamed: "Courier")
     let subtitleNode = SKLabelNode(fontNamed: "Courier")
     let scoreNode = SKLabelNode(fontNamed: "Courier")
@@ -38,6 +40,12 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
         if !sceneCreated {
             sceneCreated = true
             createSceneContents()
+        }
+    }
+
+    func viewDidLoad() {
+        if (defaults.string(forKey: "highscore")?.isEmpty)! {
+            defaults.set(generateScore(), forKey: "highscore")
         }
     }
 
@@ -106,7 +114,7 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
     }
 
     func scoreLabel() -> SKLabelNode {
-        scoreNode.text = generateScore()
+        scoreNode.text = "HighScore: " + scoreFormat(score: defaults.integer(forKey: "highscore"))
         scoreNode.fontSize = 13
         scoreNode.horizontalAlignmentMode = .right
         scoreNode.position = CGPoint(x: self.frame.maxX - 4, y:self.frame.midY + 2)
@@ -116,8 +124,16 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
         return scoreNode
     }
 
+    func scoreFormat(score: Int) -> String {
+        return String(format: "%07d", score)
+    }
+    
     func generateScore() -> String {
-        return String(format: "%07d", currentScore)
+        return scoreFormat(score: currentScore)
+    }
+    
+    func newHighscore() -> Bool {
+        return currentScore > defaults.integer(forKey: "highscore")
     }
 
     func bananamanSprite() -> SKSpriteNode {
@@ -139,6 +155,11 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
         return bananamanSpriteNode
     }
 
+    func updateHighscore() {
+        defaults.set(currentScore, forKey: "highscore")
+        scoreNode.text = "New Highscore: " + scoreNode.text!
+    }
+    
     func endGame() {
 
         titleNode.isHidden = false
@@ -148,6 +169,11 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
         shouldSpawnObstacle = false
         gameStarted = false
         shouldUpdateScore = false
+
+        if (newHighscore()) {
+            updateHighscore()
+        }
+        
         for node in self.children {
             if (node.physicsBody?.categoryBitMask == PhysicsCategory.Obstacle) {
                 node.physicsBody?.velocity = CGVector(dx:0, dy:0)
@@ -240,13 +266,4 @@ class BananaManScene: SKScene, SKPhysicsContactDelegate {
             endGame()
         }
     }
-
-    func logger() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
-            NSLog("Sprite at: %f, %f", self.bananamanSpriteNode.position.x, self.bananamanSpriteNode.position.y)
-            self.logger()
-        })
-    }
-
-
 }
