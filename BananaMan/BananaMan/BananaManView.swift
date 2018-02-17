@@ -10,16 +10,15 @@ import Cocoa
 import SpriteKit
 
 class BananaManView: SKView {
-    
+
     let bananamanScene = BananaManScene(size: CGSize(width: 1005, height: 30))
-    
+
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        // Drawing code here.
     }
-    
+
     func initScene() {
         self.presentScene(bananamanScene)
     }
-    
+
 }
