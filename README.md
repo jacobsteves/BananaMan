@@ -3,6 +3,7 @@ A mac touchbar application similar to google chrome's Dino runner. Includes trac
 
 Scores are tracked as a time counter. The longer you survive, the higher your score will be. If your score breaks the highscore, you update the highscore which is visible when the app starts up again.
 
+![Menu](Demo/menu.png)
 ![Demo Gif](Demo/bananaMan.gif)
 
 ## Getting Started
@@ -31,7 +32,7 @@ Open the project in Xcode, then just clean and build and you'll be good to go!
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/jacobsteves/project/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/jacobsteves/BananaMan/tags).
 
 ## License
 
