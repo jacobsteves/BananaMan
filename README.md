@@ -1,6 +1,8 @@
 # BananaMan
 A mac touchbar application similar to google chrome's Dino runner. Includes tracking highscores through the machine's local storage. Can be built into a complete app.
 
+![Demo Gif](Demo/bananaMan.gif)
+
 ## Getting Started
 
 ### Prerequisites
