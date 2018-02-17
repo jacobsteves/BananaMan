@@ -6,8 +6,13 @@ A mac touchbar application similar to google chrome's Dino runner. Includes trac
 
 Scores are tracked as a time counter. The longer you survive, the higher your score will be. If your score breaks the highscore, you update the highscore which is visible when the app starts up again.
 
-![Menu](Demo/menu.png)
-![Demo Gif](Demo/bananaMan.gif)
+| Menu                 |
+| -------------------- |
+|![Menu](Demo/menu.png)|
+
+| Gameplay                      |
+| ----------------------------- |
+|![Demo Gif](Demo/bananaMan.gif)|
 
 ## Getting Started
 
@@ -15,7 +20,8 @@ Scores are tracked as a time counter. The longer you survive, the higher your sc
 
 - A Mac computer
 - Ensure you have the latest version of Xcode.
-- A Macbook pro with a touchbar is <b>not</b> needed! You can simulate a touchbar window in Xcode by going to `Window->Show Touch Bar`
+- A Macbook pro with a touchbar is <b>not</b> needed! You can simulate a touchbar window in Xcode by going to
+<br>`Window->Show Touch Bar`
 
 ### Installing
 
