@@ -1,4 +1,7 @@
-# BananaMan
+<p align="center">
+  <img src="Demo/banner.png" height="100px"/>
+</p>
+
 A mac touchbar application similar to google chrome's Dino runner. Includes tracking highscores through the machine's local storage. Can be built into a complete app.
 
 Scores are tracked as a time counter. The longer you survive, the higher your score will be. If your score breaks the highscore, you update the highscore which is visible when the app starts up again.
