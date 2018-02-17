@@ -18,21 +18,21 @@ Scores are tracked as a time counter. The longer you survive, the higher your sc
 
 ### Prerequisites
 
-- A Mac computer
-- Ensure you have the latest version of Xcode.
-- A Macbook pro with a touchbar is <b>not</b> needed! You can simulate a touchbar window in Xcode by going to
+* A Mac computer
+* Ensure you have the latest version of Xcode.
+* A Macbook pro with a touchbar is <b>not</b> needed! You can simulate a touchbar window in Xcode by going to
 <br>`Window -> Show Touch Bar`
-- If you are using the physical touchbar, ensure that in `System Preferences -> Keyboard -> Touch Bar Shows` is set to either `App Controls` or `App Controls with Control Strip`. This will enable your Mac to show app specific touchbar features, which is required for the BananaMan app.
+* If you are using the physical touchbar, ensure that in `System Preferences -> Keyboard -> Touch Bar Shows` is set to either `App Controls` or `App Controls with Control Strip`. This will enable your Mac to show app specific touchbar features, which is required for the BananaMan app.
 
 ### Installing
 
-Clone this repo.
+* Clone this repo.
 
 ```
 git clone https://github.com/jacobsteves/BananaMan.git
 ```
 
-Open `BananaMan/BananaMan` in Xcode, clean and build and you're ready to go!
+* Open `BananaMan/BananaMan` in Xcode, clean and build and you're ready to go!
 
 ## Built With
 
